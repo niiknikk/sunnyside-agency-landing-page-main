@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=Fraunces:wght@700&display=swap');
+
+// font family
+
+$barlow: 'Barlow', sans-serif;
+$fraunces: 'Fraunces', serif;
+
+
+//Primary
+
+$Soft-red: hsl(7, 99%, 70%);
+$Yellow: hsl(51, 100%, 49%);
+$Dark: hsl(167, 40%, 24%);    //desaturated cyan (graphic design text)
+$Dark-blue : hsl(198, 62%, 26%); //(photography text)
+$Dark-cyan: hsl(168, 34%, 41%); // moderate cyan (footer)
+
+//Neutral
+
+$Very-dark-blue: hsl(212, 27%, 19%); // desaturated blue
+$Very-dark-grayish-blue: hsl(213, 9%, 39%);
+$Dark-grayish-blue: hsl(232, 10%, 55%);
+$Grayish-blue: hsl(210, 4%, 67%);
+$White: hsl(0, 0%, 100%);
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+
+    box-sizing: border-box;
+    font-size: 62.5%; //1 rem = 10px; 10px/16px = 62.5%
+}
+
+a{text-decoration: none;}
+
+ul{list-style-type: none;}
+
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+        @media only screen and (max-width: 37.5em) { @content };    //600px
+    }
+    @if $breakpoint == tab-port {
+        @media only screen and (max-width: 56.25em) { @content };     //900px
+    }
+    @if $breakpoint == tab-land {
+        @media only screen and (max-width: 75em) { @content };    //1200px
+    }
+    @if $breakpoint == big-desktop {
+        @media only screen and (min-width: 112.5em) { @content };    //1800
+    }
+}
+
+// headings and paragraph
+.heading-primary{
+    font-size: 5rem;
+    font-family: $fraunces;
+    color: $White;
+    letter-spacing: .4rem;
+    text-transform: uppercase;
+    text-align: center;
+
+    @include respond(phone){
+        font-size: 3rem;
+    }
+}
+
+.heading-secondary{
+    font-size: 2.5rem;
+    color: $Very-dark-blue;
+    font-family: $fraunces;
+}
+
+.heading-secondary{
+    font-size: 3rem;
+    color: $Very-dark-blue;
+    font-family: $fraunces;
+    font-weight: 900;
+    line-height: 1.3;
+}
+
+.text-paragraph{
+
+    font-size: 1.8rem;
+    color: $Grayish-blue;
+    font-family: $barlow;
+    line-height: 1.4;
+
+}
+
+.card-text-link{
+    position: relative;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    color:$Very-dark-blue;
+    font-family: $fraunces;
+    letter-spacing: .05rem;
+    margin-right: 1rem;
+    &::before{
+        z-index: -1;
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: .8rem;
+        width: 100%;
+        border-radius: 2rem;
+        background-color: $Yellow;
+    }
+}
